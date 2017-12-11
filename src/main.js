@@ -178,6 +178,8 @@
             var value = this.get(propName);
             var date = new Date(value);
 
+            label.css(this.css(["color", "width", "font", "padding", "text-align", "border-width", "box-sizing"])).css({ "line-height": "" }) // IE10 returns invalid line-height for hidden elements
+
             this.value(value);
 
             if (!isNaN(date)) {

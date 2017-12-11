@@ -1,8 +1,8 @@
 /**
  * better-dateinput-polyfill: input[type=date] polyfill for better-dom
- * @version 2.0.2 Wed, 02 Nov 2016 16:33:36 GMT
+ * @version 2.0.2 Mon, 11 Dec 2017 09:41:09 GMT
  * @link https://github.com/chemerisuk/better-dateinput-polyfill
- * @copyright 2016 Maksim Chemerisuk
+ * @copyright 2017 Maksim Chemerisuk
  * @license MIT
  */
 (function (DOM, VK_SPACE, VK_TAB, VK_ENTER, VK_ESCAPE, VK_BACKSPACE, VK_DELETE, VK_CONTROL) {
@@ -155,6 +155,8 @@
         _syncValue: function (propName, label) {
             var value = this.get(propName);
             var date = new Date(value);
+
+            label.css(this.css(["color", "width", "font", "padding", "text-align", "border-width", "box-sizing"])).css({ "line-height": "" }); // IE10 returns invalid line-height for hidden elements
 
             this.value(value);
 
